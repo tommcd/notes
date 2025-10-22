@@ -1,0 +1,9 @@
+allowed_tags:
+  - sample
+  - blog
+  - test
+  - python
+  - rust
+  - bash
+  - web
+  - security

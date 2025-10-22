@@ -1,0 +1,134 @@
+project:
+  type: website
+  output-dir: dist/quarto
+  preview:
+    port: 4200
+    browser: false
+
+website:
+  title: "Tom's Knowledge Base"
+  description: "Personal notes, blog, and reference library"
+  site-url: https://notes.tom.dev  # Update with your actual domain
+  repo-url: https://github.com/tommcd/notes  # Update with your repo
+  repo-actions: [edit, issue]
+  page-navigation: true
+  bread-crumbs: true
+
+  navbar:
+    title: "Knowledge Base"
+    logo: false
+    search: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Notes"
+        file: notes/index.qmd
+      - text: "Blog"
+        file: notes/blog/index.qmd
+      - text: "References"
+        file: references/index.qmd
+    right:
+      - icon: github
+        href: https://github.com/tommcd/notes  # Update with your repo
+        aria-label: GitHub
+
+  sidebar:
+    - title: "Notes"
+      style: "docked"
+      search: true
+      contents:
+        - notes/index.qmd
+        - section: "Notes"
+          contents:
+            - notes/*.qmd
+            - notes/*.md
+
+    - title: "References"
+      contents:
+        - references/index.qmd
+        - section: "By Tag"
+          contents:
+            - references/tags/*.qmd
+            - references/tags/*.md
+        - section: "All References"
+          contents:
+            - references/*.qmd
+            - references/*.md
+
+  page-footer:
+    left: "Copyright 2025, Tom"
+    right:
+      - icon: github
+        href: https://github.com/tommcd/notes
+        aria-label: GitHub
+
+# Bibliography
+bibliography: data/derived/references.csl.json
+csl: ieee.csl  # Citation Style Language (IEEE by default)
+link-citations: true
+citeproc: true
+
+# Format
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]
+      dark: [cosmo, custom-dark.scss]
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    toc-title: "On this page"
+    toc-location: right
+    code-copy: true
+    code-overflow: wrap
+    code-tools: true
+    smooth-scroll: true
+    link-external-icon: true
+    link-external-newwindow: true
+    date-format: medium
+    author-meta: "Tom"
+    citation-location: margin
+    reference-location: margin
+    fig-cap-location: margin
+    footnotes-hover: true
+    anchor-sections: true
+    email-obfuscation: javascript
+
+# Listings (for blog)
+listing:
+  - id: blog-posts
+    contents: notes/blog/*.md
+    type: default
+    sort: "date desc"
+    categories: true
+    sort-ui: false
+    filter-ui: false
+    fields: [date, title, description, categories]
+    feed: true
+    date-format: "MMMM D, YYYY"
+    max-items: 100
+
+# Code execution
+execute:
+  freeze: auto
+  cache: true
+  echo: true
+  warning: true
+  error: false
+
+# Metadata
+lang: en
+date-format: "MMMM D, YYYY"
+
+# Comments (optional - uncomment to enable)
+# comments:
+#   hypothesis: true
+#   utterances:
+#     repo: tommcd/notes
+#     theme: github-light
+
+# Google Analytics (optional)
+# google-analytics: "G-XXXXXXXXXX"
+
+# Quarto options
+prefer-html: true

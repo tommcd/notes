@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Testing
+.tox/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+reports/
+*.cover
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build tools
+.ruff_cache/
+.mypy_cache/
+
+# Copier
+.copier-answers.yml
+
+# Knowledge Base - Generated Content
+data/derived/            # Generated CSL JSON, BibTeX
+references/              # Generated reference pages
+dist/                    # SSG build outputs
+site/                    # Alternative SSG output directory
+ai/site-index.json       # Generated AI index
+
+# Knowledge Base - Cache and temporary
+.cache/
+*.tmp
+*.bak
+
+# SSG specific
+.quarto/
+_site/
+.mkdocs_cache/

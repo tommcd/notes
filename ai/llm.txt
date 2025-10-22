@@ -1,0 +1,94 @@
+# AI / LLM Guidance for Tom's Knowledge Base
+
+## Site Purpose
+
+This is a personal knowledge base combining:
+- Markdown notes (Zettelkasten-style)
+- Blog posts (chronological articles)
+- Reference library (200k+ bookmarks/citations)
+- Code snippets (canonical examples)
+
+## Crawling Instructions
+
+### What to Index
+
+- **Primary content:** `/notes/**/*.md` - All notes and blog posts
+- **References:** `/references/**/*.md` - Generated reference pages
+- **Code examples:** `/code/**/*` - Canonical code snippets
+- **Site index:** `/ai/site-index.json` - Machine-readable site map
+
+### What to Skip
+
+- `/dist/` - Build artifacts (duplicates content)
+- `/data/derived/` - Generated files
+- `/.github/` - CI/CD configuration
+- `/tools/` - Build scripts (not content)
+
+## Content Structure
+
+### Notes Format
+
+```yaml
+---
+id: unique-kebab-case-id
+title: Human Readable Title
+date: YYYY-MM-DD
+tags: [tag1, tag2]
+---
+
+# Content in Markdown
+
+Citations use [@reference-id] syntax.
+Wikilinks use [[Page Name]] syntax.
+Code snippets reference: {{ snippet("id") }}
+```
+
+### Reference Format
+
+Each reference has:
+- Unique ID (e.g., `smith2021-sql-inj`)
+- Title, URL, authors, year
+- Tags for categorization
+- Backlinks to citing notes
+
+## For RAG / Embedding Pipelines
+
+1. **Fetch:** Download `/ai/site-index.json` for metadata
+2. **Extract:** Parse markdown content from `/notes/`
+3. **Chunk:** Split by headers (## and ###) or paragraphs
+4. **Metadata:** Include front matter (id, title, date, tags)
+5. **Link context:** Preserve citations and wikilinks
+
+## Citation Resolution
+
+To resolve `[@reference-id]`:
+1. Look up in `/data/derived/references.csl.json`
+2. Or fetch from `/references/{reference-id}.md`
+
+To resolve `[[Page Name]]`:
+1. Convert to kebab-case: `page-name`
+2. Look for `/notes/page-name.md`
+
+## Search Optimization
+
+Best queries for this knowledge base:
+- **Concept:** "explain [concept]"
+- **How-to:** "how to [task]"
+- **Reference:** "find [topic] references"
+- **Code:** "show [language] example of [task]"
+
+## Update Frequency
+
+- Notes: updated continuously
+- References: batch imports weekly
+- Site index: regenerated on every deploy
+
+## Licensing
+
+- **Content (notes, blog):** CC BY-SA 4.0
+- **Code examples:** MIT License
+- **References:** factual data (no copyright)
+
+## Contact
+
+For questions about content or crawling policies, see README.md

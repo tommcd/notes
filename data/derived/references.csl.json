@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sample-2025-test",
+    "type": "web",
+    "title": "Sample Reference",
+    "URL": "https://example.com",
+    "author": [
+      {
+        "literal": "Doe, J."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    }
+  }
+]

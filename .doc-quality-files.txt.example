@@ -1,0 +1,41 @@
+# Documentation Quality: Important Files
+#
+# This file configures which files should be linked (not just mentioned)
+# in documentation. When these files are mentioned in markdown docs, they
+# should be proper markdown links for refactoring safety.
+#
+# Format: One filename per line, lines starting with # are comments
+#
+# Why link files in documentation?
+# 1. Refactoring safety: lychee catches broken links when files are renamed
+# 2. Clickable navigation: Links work in GitHub, IDEs, and rendered docs
+# 3. Automatic validation: lychee checks link validity
+#
+# Example:
+#   Bad:  "See pyproject.toml for configuration"
+#   Good: "See [pyproject.toml](pyproject.toml) for configuration"
+#
+# To customize: Copy this file to .doc-quality-files.txt and edit the list.
+# If .doc-quality-files.txt doesn't exist, sensible defaults are used.
+
+# Core Python project files
+pyproject.toml
+tox.ini
+pytest.ini
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Git
+.gitignore
+
+# Documentation tools
+.lychee.toml
+.markdownlint.yaml
+
+# Environment setup scripts
+setup-environment.sh
+setup-external-tools.py
+check-environment.sh
+clean-environment.sh

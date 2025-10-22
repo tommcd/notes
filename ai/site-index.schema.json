@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://notes.tom.dev/ai/site-index.schema.json",
+  "title": "Knowledge Base Site Index",
+  "description": "Machine-readable index of knowledge base content for AI/LLM consumption",
+  "type": "object",
+  "required": ["version", "generated", "site_title"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version (semver)",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of generation"
+    },
+    "site_title": {
+      "type": "string",
+      "description": "Site title"
+    },
+    "site_description": {
+      "type": "string",
+      "description": "Site description"
+    },
+    "site_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Base URL of the site"
+    },
+    "notes": {
+      "type": "array",
+      "description": "All markdown notes",
+      "items": {
+        "$ref": "#/$defs/note"
+      }
+    },
+    "references": {
+      "type": "array",
+      "description": "All references",
+      "items": {
+        "$ref": "#/$defs/reference"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "All tags used across content",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stats": {
+      "type": "object",
+      "description": "Content statistics",
+      "properties": {
+        "note_count": {"type": "integer"},
+        "blog_count": {"type": "integer"},
+        "reference_count": {"type": "integer"},
+        "tag_count": {"type": "integer"}
+      }
+    }
+  },
+  "$defs": {
+    "note": {
+      "type": "object",
+      "required": ["id", "title", "path"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique note ID (kebab-case)"
+        },
+        "title": {
+          "type": "string",
+          "description": "Note title"
+        },
+        "path": {
+          "type": "string",
+          "description": "Relative path from site root"
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "ISO 8601 date"
+        },
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "excerpt": {
+          "type": "string",
+          "description": "First paragraph or summary"
+        },
+        "word_count": {
+          "type": "integer"
+        },
+        "outbound_links": {
+          "type": "array",
+          "description": "Wikilinks to other notes",
+          "items": {"type": "string"}
+        },
+        "citations": {
+          "type": "array",
+          "description": "Reference IDs cited",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "required": ["id", "title", "url"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique reference ID"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["web", "paper", "book", "video", "misc"]
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "authors": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "year": {
+          "type": "integer"
+        },
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "accessed": {
+          "type": "string",
+          "format": "date"
+        },
+        "archived_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Wayback Machine or archive URL"
+        },
+        "cited_by": {
+          "type": "array",
+          "description": "Note IDs that cite this reference",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}
