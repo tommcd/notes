@@ -1,0 +1,81 @@
+# Claude Code Configuration
+# Critical rules that MUST be followed in this repository
+
+## Git Safety Rules - MANDATORY
+
+### Rule 1: Pin repository context for every git command
+# NEVER rely on ambient working directory for git operations
+# ALWAYS use explicit repository paths with git -C <repo> or verify pwd first
+# Example: git -C ~/git/tommcd/notes status
+# Example: cd ~/git/tommcd/notes && git status && cd -
+
+### Rule 2: Gate all commits with explicit verification
+# BEFORE any git commit command, you MUST:
+# 1. Run: git status
+# 2. Run: git diff --staged
+# 3. Show output to user
+# 4. Wait for explicit user approval
+# 5. ONLY THEN run git commit
+# NO exceptions to this rule
+
+### Rule 3: Abort immediately on tool rejection
+# If ANY tool use is rejected by the user:
+# 1. STOP all related workflows immediately
+# 2. DO NOT proceed with dependent operations
+# 3. Ask user explicitly: "Tool was rejected. Should I continue?"
+# 4. Wait for explicit "yes" or "continue" before proceeding
+
+### Rule 4: Name files explicitly in git operations
+# ALWAYS use explicit paths relative to repo root
+# Example: git add ./README.md (good)
+# Example: git add README.md (risky - which README?)
+# ALWAYS verify repo root first: git rev-parse --show-toplevel
+
+### Rule 5: Re-read files before commits
+# If user has edited a file manually:
+# 1. MUST re-read the file from disk before committing
+# 2. MUST verify the staged content matches user's intent
+# 3. Show user a diff of what will be committed
+# 4. Wait for confirmation
+
+## Communication Rules - MANDATORY
+
+### Rule 6: Read complete user messages before acting
+# When user sends a message:
+# 1. Read the ENTIRE message first
+# 2. Note ALL questions, instructions, and feedback
+# 3. Formulate complete response addressing ALL points
+# 4. DO NOT start executing until you've understood everything
+# User has explicitly stated: "Please, you must actually read my entire response before proceeding"
+
+### Rule 7: Confirm understanding of ambiguous instructions
+# If user says "continue" or similar ambiguous instruction:
+# 1. Check context: what were they waiting for?
+# 2. If unclear, ask: "Continue with [specific action]?"
+# 3. Do NOT assume - always verify
+
+## Sensitive Information Rules - MANDATORY
+
+### Rule 8: Never commit personal information without explicit review
+# This repository uses conditional git config for personal email
+# BEFORE committing any file that might contain personal info:
+# 1. Check for email addresses
+# 2. Check for names/phone numbers
+# 3. Check for API keys/tokens
+# 4. Show user and ask for confirmation
+
+### Rule 9: Multi-repo operations require explicit tracking
+# When working with multiple repositories (notes, tommcd, tommcd.github.io):
+# 1. State which repo you're operating in at start of each operation
+# 2. Use absolute paths for all cross-repo operations
+# 3. Verify git remote before push: git remote -v
+
+## Enforcement
+
+These rules are NOT suggestions - they are MANDATORY safety requirements.
+Violation of these rules has led to:
+- Personal information being exposed on GitHub
+- Commits made without user approval
+- Operations on wrong repositories
+
+If you are unsure about ANY of these rules, ASK THE USER before proceeding.

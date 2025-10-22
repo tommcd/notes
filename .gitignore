@@ -69,3 +69,6 @@ ai/site-index.json       # Generated AI index
 .quarto/
 _site/
 .mkdocs_cache/
+
+# Claude Code session logs
+dev/*-*-*-*-*.md

@@ -82,6 +82,25 @@ Ownership map:
 - Do not write credentials into configs.
 - If a task requests external API usage, stop and open an issue for review.
 
+### 🔴 CRITICAL Git Safety Rules
+
+**MANDATORY for all git operations. See `.claude/rules.md` for complete details.**
+
+1. **Pin repository context:** Use `git -C <repo>` or verify pwd before EVERY git command
+2. **Gate commits:** MUST show `git status` + `git diff --staged` and wait for user approval before commit
+3. **Abort on tool rejection:** If ANY tool use is rejected, STOP and ask user how to proceed
+4. **Explicit file paths:** Always use `./path` relative to repo root; verify with `git rev-parse --show-toplevel`
+5. **Re-read before commit:** If user edited file manually, re-read from disk before committing
+6. **Multi-repo tracking:** State which repo you're in; use absolute paths for cross-repo operations
+7. **Personal info review:** Check for emails/names/credentials before committing; show user and wait for approval
+
+**These rules exist due to historical incidents where violations caused:**
+- Personal information exposed on GitHub
+- Commits made without user approval
+- Operations on wrong repositories
+
+**Zero tolerance: When in doubt, ASK THE USER before proceeding.**
+
 ## 8. SSG Adapter Contract (for agents)
 
 Implement a new adapter under `ssg/<name>/adapter.sh` supporting:
