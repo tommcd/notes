@@ -20,13 +20,13 @@ website:
     search: true
     left:
       - text: "Home"
-        file: index.qmd
+        file: docs/index.qmd
       - text: "Notes"
-        file: notes/index.qmd
+        file: docs/notes/index.qmd
       - text: "Blog"
-        file: notes/blog/index.qmd
+        file: docs/notes/blog/index.qmd
       - text: "References"
-        file: references/index.qmd
+        file: docs/references/index.qmd
     right:
       - icon: github
         href: https://github.com/tommcd/notes  # Update with your repo

@@ -149,27 +149,36 @@ uv run pre-commit run --all-files
 
 ```
 notes/
-├── notes/              # Markdown notes and blog posts
+├── docs/                      # USER-FACING CONTENT
+│   ├── index.md              # Site homepage
+│   ├── notes/                # Knowledge base notes
+│   │   ├── blog/            # Blog posts
+│   │   └── *.md             # Individual notes
+│   └── references/           # Generated reference pages (gitignored)
+├── dev/                       # PROJECT DOCUMENTATION
+│   ├── IMPLEMENTATION_SUMMARY.md
+│   └── session-commands.md   # Command history
 ├── data/
-│   ├── refs/          # Reference database (JSONL)
-│   └── derived/       # Generated CSL/BibTeX (gitignored)
-├── references/         # Generated reference pages (gitignored)
-├── code/              # Canonical code examples
-├── ai/                # AI/LLM guidance files
-├── ssg/               # SSG adapters (mkdocs, quarto)
-├── tools/             # Python build tools
-├── src/notes/         # Python package for tooling
-├── tests/             # Test suite
-├── justfile           # Task runner recipes
-├── mkdocs.yml         # MkDocs configuration
-├── _quarto.yml        # Quarto configuration
-├── SPEC.md            # Project specification
-└── AGENTS.md          # Agent development guide
+│   ├── refs/                 # Reference database (JSONL)
+│   └── derived/              # Generated CSL/BibTeX (gitignored)
+├── code/                      # Canonical code examples
+├── ai/                        # AI/LLM guidance files
+├── ssg/                       # SSG adapters (mkdocs, quarto)
+├── tools/                     # Python build tools
+├── src/notes/                 # Python package for tooling
+├── tests/                     # Test suite
+├── .github/workflows/         # CI/CD pipelines
+├── justfile                   # Task runner recipes
+├── mkdocs.yml                 # MkDocs configuration
+├── _quarto.yml                # Quarto configuration
+├── SPEC.md                    # Project specification (root for discoverability)
+├── AGENTS.md                  # Agent development guide (root for discoverability)
+└── README.md                  # This file
 ```
 
 ## Content Organization
 
-### Notes (`notes/`)
+### Notes (`docs/notes/`)
 
 Personal knowledge base entries with front matter:
 
@@ -187,7 +196,7 @@ Citations: [@reference-id]
 Wikilinks: [[Other Note]]
 ```
 
-### Blog (`notes/blog/`)
+### Blog (`docs/notes/blog/`)
 
 Chronological posts with date-prefixed filenames:
 - `2025-01-01-post-title.md`
@@ -204,6 +213,14 @@ JSONL reference database, sharded by hash:
 ### Code (`code/`)
 
 Canonical examples with snippet registry (`SNIPPETS.yaml`) for inclusion in notes.
+
+### Project Documentation (`dev/`)
+
+Developer and project documentation:
+- `IMPLEMENTATION_SUMMARY.md` - What was built and how
+- `session-commands.md` - Command history from setup
+
+**Note:** `SPEC.md` and `AGENTS.md` remain at root for discoverability by AI agents and contributors.
 
 ## Specification-Driven Development
 
