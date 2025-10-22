@@ -8,6 +8,9 @@ repo_url: https://github.com/tommcd/notes  # Update with your repo
 repo_name: tommcd/notes
 edit_uri: edit/main/notes/
 
+# Content source
+docs_dir: .  # Use repo root as docs directory
+
 # Output
 site_dir: dist/mkdocs
 
@@ -170,10 +173,9 @@ extra:
     # - icon: fontawesome/brands/twitter
     #   link: https://twitter.com/yourhandle
     #   name: Twitter
-  analytics:
-    # Add Google Analytics or similar if desired
-    # provider: google
-    # property: G-XXXXXXXXXX
+  # analytics:
+  #   provider: google
+  #   property: G-XXXXXXXXXX
   generator: false  # Hide "Made with Material for MkDocs"
 
 # Copyright
