@@ -4,8 +4,8 @@ Reference library index (to be generated).
 
 ## By Tag
 
-- [sample](tags/sample.md)
+Tags will appear here once reference pages are generated.
 
 ## All References
 
-- (References will be listed here)
+References will be listed here once generated from the database.

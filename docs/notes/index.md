@@ -6,7 +6,7 @@ This is a personal collection of notes, organized in a Zettelkasten style.
 
 ## Features
 
-- **Wikilinks:** Connect notes with `[[Page Name]]` syntax
+- **Wikilinks:** Connect notes with wikilink syntax
 - **Citations:** Reference external sources with `[@reference-id]`
 - **Tags:** Categorize and discover related content
 - **Full-text search:** Find anything quickly
@@ -16,7 +16,7 @@ This is a personal collection of notes, organized in a Zettelkasten style.
 Browse by:
 - [Tags](#tags)
 - [Recent notes](#recent)
-- [Blog posts](../blog/index.md)
+- [Blog posts](blog/index.md)
 - [References](../references/index.md)
 
 ## Tags

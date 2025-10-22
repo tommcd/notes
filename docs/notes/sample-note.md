@@ -13,7 +13,7 @@ This is a sample note demonstrating the knowledge base structure.
 
 - Front matter with metadata
 - Citation: [@sample-2025-test]
-- Wikilinks: [[another-note]]
+- Links to other notes
 - Markdown formatting
 
 ## Content
