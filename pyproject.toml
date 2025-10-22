@@ -89,19 +89,18 @@ dev = [
   "tox-uv>=1.29.0",
   # Documentation formatting
   "mdformat>=0.7.22",
-  # SSTDF tool management
-  # NOTE: This assumes SSTDF monorepo structure (../sstdf-python-standards exists)
-  # When moving project to standalone repo, change to:
-  #   "sstdf-python-standards @ git+ssh://gerrit.internal.ericsson.com/nm2dev1-utils.git@master#subdirectory=SSTDF/sstdf-python-standards"
-  # Or if published to PyPI:
-  #   "sstdf-python-standards>=1.0.0"
-  "sstdf-python-standards @ file:///${PROJECT_ROOT}/../sstdf-python-standards",
+  # SSTDF tool management (commented out - not available)
+  # "sstdf-python-standards>=1.0.0",
 ]
 docs = [
   # Documentation site generation
   "mkdocs>=1.6.1",
   "mkdocs-material>=9.6.21",
   "mkdocs-material-extensions>=1.3.1",
+  # MkDocs plugins
+  "mkdocs-awesome-pages-plugin>=2.9.3",
+  "mkdocs-roamlinks-plugin>=0.3.2",
+  "mkdocs-bibtex>=2.17.0",
 ]
 
 # ---- coverage: module-targeted so it works for editable or wheel installs ----

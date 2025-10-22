@@ -1,7 +1,12 @@
 ---
-title: Hello World
+draft: false
 date: 2025-01-01
-tags: [blog, meta]
+categories:
+  - Blog
+  - Meta
+tags:
+  - blog
+  - meta
 ---
 
 # Hello World
