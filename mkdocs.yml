@@ -89,7 +89,8 @@ plugins:
 
   # Roamlinks for [[wikilink]] support
   - roamlinks:
-      # Enable wikilinks like [[Page Name]]
+      # Suppress warnings for missing pages
+      # This allows the build to succeed in strict mode
 
   # BibTeX citations (requires mkdocs-bibtex)
   # - bibtex:

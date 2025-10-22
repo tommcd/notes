@@ -13,7 +13,7 @@ This is a personal knowledge management system combining:
 
 ## Features
 
-- **Wikilinks** - Connect ideas with `[[Page Name]]`
+- **Wikilinks** - Connect ideas with `[[sample-note]]`
 - **Citations** - Reference sources with `[@reference-id]`
 - **Tags** - Organize and discover content
 - **Full-text search** - Find anything quickly
