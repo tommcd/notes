@@ -143,18 +143,28 @@ I want to make sure I understand correctly."
 ## Sensitive Information Rules
 
 ### 🔴 CRITICAL: Personal Information Review
-This repository uses conditional git config for personal email (tcmcdermott@gmail.com).
 
-**Before committing files that might contain personal info:**
+**MANDATORY: Run sensitive info checker before ALL commits to docs/:**
 
-1. Check for email addresses
-2. Check for names/phone numbers
-3. Check for API keys/tokens/credentials
-4. Check for file paths that reveal username
-5. **Show findings to user**
-6. **Wait for explicit approval**
+```bash
+python3 tools/check_sensitive_info.py
+```
+
+This tool scans for personal identifiers including:
+- Real names
+- Work identifiers (signums, company names)
+- Computer/laptop IDs
+- Usernames in file paths
+
+**Before committing ANY content file:**
+
+1. **MUST** run `python3 tools/check_sensitive_info.py`
+2. If violations found, redact or use placeholders (e.g., `/home/<user>/...`, `<your-name>`)
+3. **Show checker results to user**
+4. **Wait for explicit approval**
 
 **High-risk files:**
+- All files in docs/ (user-facing content)
 - README.md, CONTRIBUTING.md (may contain contact info)
 - .env, .env.*, credentials.* (secrets)
 - Config files (may contain paths/emails)

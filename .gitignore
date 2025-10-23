@@ -72,3 +72,6 @@ _site/
 
 # Claude Code session logs
 dev/*-*-*-*-*.md
+
+# Sensitive patterns configuration (contains personal identifiers)
+.sensitive-patterns

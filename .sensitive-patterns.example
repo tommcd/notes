@@ -1,0 +1,13 @@
+# Sensitive patterns configuration
+# Copy this to .sensitive-patterns and customize with your actual identifiers
+# .sensitive-patterns is gitignored and will not be committed
+
+# Format: pattern_name = regex_pattern
+# All patterns are case-insensitive
+
+name = \b(your-first-name|your-last-name)\b
+signum = \byour-work-username\b
+company = \byour-company-name\b
+laptop_id = \bYOUR-LAPTOP-ID\b
+home_path = /home/your-username\b
+windows_user = C:\\Users\\your-username\b

@@ -12,6 +12,8 @@ default:
 
 # Validate all data sources
 validate:
+    @echo "==> Checking for sensitive information..."
+    uv run python tools/check_sensitive_info.py
     @echo "==> Validating reference database..."
     uv run python tools/validate_refs.py
     @echo "==> Checking note front matter..."
