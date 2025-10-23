@@ -29,7 +29,20 @@ A durable, Git‑backed knowledge base with: notes, blog, citation database, ext
 
 ```
 repo/
-  notes/                         # Markdown notes (nested by domain)
+  docs/                          # USER-FACING CONTENT (SSG source)
+    index.md                     # Site homepage
+    notes/                       # Markdown notes (nested by domain)
+      blog/                      # Blog posts
+        posts/                   # Material blog plugin expects posts/ subdirectory
+          *.md
+        index.md                 # Blog index
+      *.md                       # Knowledge base notes
+    references/                  # GENERATED reference pages (gitignored)
+      tags/                      # Tag pages
+      *.md                       # Individual reference detail pages
+  dev/                           # PROJECT DOCUMENTATION
+    IMPLEMENTATION_SUMMARY.md    # Implementation notes
+    session-commands.md          # Command history
   code/                          # Canonical example sources
     python/ rust/ bash/ ...
     SNIPPETS.yaml                # snippet registry (IDs → file selectors)
@@ -40,7 +53,6 @@ repo/
     derived/                     # build outputs (gitignored)
       references.csl.json
       references.bib
-  references/                    # GENERATED pages (gitignored; emitted to dist)
   ai/
     llm.txt
     map.md
@@ -58,10 +70,12 @@ repo/
     check_front_matter.py
     export_ai_index.py
   site_root/index.html           # links to /mkdocs/ and /quarto/
-  mkdocs.yml
-  _quarto.yml
-  justfile (and minimal Makefile for CI if desired)
-  .github/workflows/{pages.yml,nightly.yml}
+  mkdocs.yml                     # MkDocs configuration (docs_dir: docs)
+  _quarto.yml                    # Quarto configuration
+  justfile                       # Modern build system
+  .github/workflows/pages.yml    # GitHub Pages deployment
+  SPEC.md                        # This file (at root for discoverability)
+  AGENTS.md                      # Agent development guide (at root)
 ```
 
 ## 5. Data Contracts
