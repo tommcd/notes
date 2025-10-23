@@ -1,4 +1,4 @@
 nav:
-  - Overview: index.md
-  - Notes: "*.md"
-  - Blog: blog
+  - index.md
+  - ...
+  - blog
